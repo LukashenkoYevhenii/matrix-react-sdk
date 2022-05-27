@@ -26,8 +26,6 @@ import UIStore from "../../stores/UIStore";
 import { checkInputableElement, RovingTabIndexProvider } from "../../accessibility/RovingTabIndex";
 import { KeyBindingAction } from "../../accessibility/KeyboardShortcuts";
 import { getKeyBindingsManager } from "../../KeyBindingsManager";
-import SettingsStore from "../../settings/SettingsStore";
-import { UIFeature } from "../../settings/UIFeature";
 
 // Shamelessly ripped off Modal.js.  There's probably a better way
 // of doing reusable widgets like dialog boxes & menus where we go and
@@ -372,7 +370,7 @@ export default class ContextMenu extends React.PureComponent<IProps, IState> {
         </>;
 
         if (props.focusLock) {
-            body = <FocusLock crossFrame={SettingsStore.getValue(UIFeature.IFrameFriendly)}
+            body = <FocusLock crossFrame={false}
             >
                 { body }
             </FocusLock>;

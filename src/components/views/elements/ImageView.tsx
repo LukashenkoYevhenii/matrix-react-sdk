@@ -39,7 +39,6 @@ import { ViewRoomPayload } from "../../../dispatcher/payloads/ViewRoomPayload";
 import { KeyBindingAction } from "../../../accessibility/KeyboardShortcuts";
 import { getKeyBindingsManager } from "../../../KeyBindingsManager";
 import { presentableTextForFile } from "../../../utils/FileUtils";
-import { UIFeature } from "../../../settings/UIFeature";
 
 // Max scale to keep gaps around the image
 const MAX_SCALE = 0.95;
@@ -547,7 +546,7 @@ export default class ImageView extends React.Component<IProps, IState> {
 
         return (
             <FocusLock
-                crossFrame={SettingsStore.getValue(UIFeature.IFrameFriendly)}
+                crossFrame={false}
                 returnFocus={true}
                 lockProps={{
                     onKeyDown: this.onKeyDown,
