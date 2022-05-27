@@ -25,6 +25,8 @@ import { _t } from "../../../languageHandler";
 import AccessibleButton from "../elements/AccessibleButton";
 import { KeyBindingAction } from "../../../accessibility/KeyboardShortcuts";
 import { getKeyBindingsManager } from "../../../KeyBindingsManager";
+import SettingsStore from "../../../settings/SettingsStore";
+import { UIFeature } from "../../../settings/UIFeature";
 
 export interface IScrollableBaseState {
     canSubmit: boolean;
@@ -75,6 +77,7 @@ export default abstract class ScrollableBaseModal<TProps extends IDialogProps, T
         return (
             <MatrixClientContext.Provider value={this.matrixClient}>
                 <FocusLock
+                    crossFrame={SettingsStore.getValue(UIFeature.IFrameFriendly)}
                     returnFocus={true}
                     lockProps={{
                         onKeyDown: this.onKeyDown,

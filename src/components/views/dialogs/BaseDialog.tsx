@@ -30,6 +30,8 @@ import { IDialogProps } from "./IDialogProps";
 import { PosthogScreenTracker, ScreenName } from "../../../PosthogTrackers";
 import { getKeyBindingsManager } from "../../../KeyBindingsManager";
 import { KeyBindingAction } from "../../../accessibility/KeyboardShortcuts";
+import SettingsStore from "../../../settings/SettingsStore";
+import { UIFeature } from "../../../settings/UIFeature";
 
 interface IProps extends IDialogProps {
     // Whether the dialog should have a 'close' button that will
@@ -150,6 +152,7 @@ export default class BaseDialog extends React.Component<IProps> {
             <MatrixClientContext.Provider value={this.matrixClient}>
                 <PosthogScreenTracker screenName={this.props.screenName} />
                 <FocusLock
+                    crossFrame={SettingsStore.getValue(UIFeature.IFrameFriendly)}
                     returnFocus={true}
                     lockProps={lockProps}
                     className={classNames({

@@ -31,6 +31,7 @@ export enum UIFeature {
     AdvancedSettings = "UIFeature.advancedSettings",
     RoomHistorySettings = "UIFeature.roomHistorySettings",
     TimelineEnableRelativeDates = "UIFeature.timelineEnableRelativeDates",
+    IFrameFriendly = "UIFeature.iframeFriendly",
 }
 
 export enum UIComponent {
