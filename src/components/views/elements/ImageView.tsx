@@ -546,6 +546,7 @@ export default class ImageView extends React.Component<IProps, IState> {
 
         return (
             <FocusLock
+                crossFrame={false}
                 returnFocus={true}
                 lockProps={{
                     onKeyDown: this.onKeyDown,

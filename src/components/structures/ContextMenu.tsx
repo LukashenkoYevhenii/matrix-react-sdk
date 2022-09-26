@@ -392,7 +392,7 @@ export default class ContextMenu extends React.PureComponent<IProps, IState> {
         </>;
 
         if (focusLock) {
-            body = <FocusLock>
+            body = <FocusLock crossFrame={false}>
                 { body }
             </FocusLock>;
         }

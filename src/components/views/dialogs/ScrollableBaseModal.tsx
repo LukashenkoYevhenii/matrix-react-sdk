@@ -75,6 +75,7 @@ export default abstract class ScrollableBaseModal<TProps extends IDialogProps, T
         return (
             <MatrixClientContext.Provider value={this.matrixClient}>
                 <FocusLock
+                    crossFrame={false}
                     returnFocus={true}
                     lockProps={{
                         onKeyDown: this.onKeyDown,
